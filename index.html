@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison de Lee (MDL) - Studio Fotografi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo-brand">
+      Maison de Lee <span>(MDL)</span>
+    </div>
+    <nav class="nav-links">
+      <button class="nav-btn active" onclick="switchScene('home', event)">Beranda</button>
+      <button class="nav-btn" onclick="switchScene('catalog', event)">Produk & Layanan</button>
+      <button class="nav-btn" onclick="switchScene('gallery', event)">Galeri & Video</button>
+      <button class="nav-btn" onclick="switchScene('booking', event)">Pemesanan</button>
+      <button class="nav-btn" onclick="switchScene('about', event)">Tentang</button>
+      <button class="nav-btn" onclick="switchScene('contact', event)">Kontak</button>
+      <button class="btn-admin-login" onclick="openLoginModal(event)">🔑 Admin Login</button>
+    </nav>
+  </header>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotification" class="toast-container">
+    <span id="toastIcon">✨</span>
+    <div>
+      <h4 id="toastTitle">Pemberitahuan</h4>
+      <p id="toastMessage">Pesan sistem...</p>
+    </div>
+  </div>
+
+  <main class="main-container">
+
+    <!-- SCENE 1: BERANDA -->
+    <section id="home" class="scene active">
+      <div class="hero-section">
+        <div class="hero-left">
+          <span class="badge-pink">✦ BEST UMKM 2026</span>
+          <h1 class="hero-title">
+            MDL Estetik <br>
+            <span class="highlight-italic">Estetika Waktu</span>
+          </h1>
+          <p class="hero-desc">
+            Selamat datang di <strong>Maison de Lee (MDL)</strong> - Studio fotografi konseptual premium yang didedikasikan untuk menangkap dan melestarikan warisan visual Anda melalui lensa seni dan kreativitas. Kami merajut kenangan indah menjadi sebuah karya seni abadi.
+          </p>
+          <div class="cta-group">
+            <button class="btn-pink-pill" onclick="switchScene('catalog')">🛍️ See Service Prices</button>
+            <button class="btn-outline-pill" onclick="switchScene('contact')">♥ Contact Us</button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="badge-float rating-badge">⭐ 4.9 Rating</div>
+          <div class="blob-bg">
+            <div class="logo-card-dark">
+              <img src="images/hero-banner.jpg" alt="Maison de Lee Logo" onerror="this.src='https://via.placeholder.com/180/1e1e1e/d4af37?text=MDL+LOGO'">
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- SCENE 2: KATALOG & LAYANAN -->
+    <section id="catalog" class="scene">
+      <div class="section-header">
+        <h2>Katalog & Layanan</h2>
+        <p>Pilih paket fotografi yang paling sesuai dengan kebutuhan acara Anda.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <img src="images/service-1.jpg" alt="Polaroid Nostalgia" onclick="openModal('images/service-1.jpg', 'Paket Polaroid Nostalgia')">
+          <div class="card-body">
+            <h3>Polaroid Nostalgia</h3>
+            <p>Sesi foto intim bertema vintage dengan efek pencahayaan klasik dan cetakan fisik berkualitas tinggi.</p>
+            <div class="price-tag">Rp 200.000</div>
+            <button class="btn btn-primary btn-block" onclick="selectPackage('Polaroid Nostalgia', event)">Pilih Paket Ini</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/service-2.jpg" alt="Prewedding / Couple" onclick="openModal('images/service-2.jpg', 'Paket Prewedding / Couple')">
+          <div class="card-body">
+            <h3>Prewedding / Couple</h3>
+            <p>Sesi romantis indoor/outdoor dengan pengarahan gaya profesional dan editing visual legacy estetis.</p>
+            <div class="price-tag">Rp 1.200.000</div>
+            <button class="btn btn-primary btn-block" onclick="selectPackage('Prewedding / Couple', event)">Pilih Paket Ini</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="images/service-3.jpg" alt="Komersial & Produk" onclick="openModal('images/service-3.jpg', 'Paket Komersial & Produk')">
+          <div class="card-body">
+            <h3>Komersial & Produk</h3>
+            <p>Pengambilan gambar komersial untuk brand, katalog busana, dan keperluan promosi bisnis digital.</p>
+            <div class="price-tag">Rp 850.000</div>
+            <button class="btn btn-primary btn-block" onclick="selectPackage('Komersial & Produk', event)">Pilih Paket Ini</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 3: GALERI & VIDEO -->
+    <section id="gallery" class="scene">
+      <div class="section-header">
+        <h2>Galeri Portofolio & Video Profile</h2>
+        <p>Klik foto untuk memperbesar atau klik tombol video untuk pemutaran mode pop-up.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="polaroid-card" onclick="openModal('images/gallery-1.jpg', 'Vintage Warm Tone')">
+          <div class="polaroid-img-wrapper">
+            <img src="images/gallery-1.jpg" alt="Vintage Warm Tone">
+          </div>
+          <p class="caption">Vintage Warm Tone</p>
+        </div>
+        <div class="polaroid-card" onclick="openModal('images/gallery-2.jpg', 'Studio Minimalis')">
+          <div class="polaroid-img-wrapper">
+            <img src="images/gallery-2.jpg" alt="Studio Minimalis">
+          </div>
+          <p class="caption">Studio Minimalis</p>
+        </div>
+        <div class="polaroid-card" onclick="openModal('images/gallery-3.jpg', 'Outdoor Portrait')">
+          <div class="polaroid-img-wrapper">
+            <img src="images/gallery-3.jpg" alt="Outdoor Portrait">
+          </div>
+          <p class="caption">Outdoor Portrait</p>
+        </div>
+      </div>
+
+      <div class="video-section">
+        <h3>Behind The Scene Studio MDL</h3>
+        <div class="video-wrapper" style="text-align: center;">
+          <video id="profileVideo" controls style="width: 100%; max-width: 800px; border-radius: 12px;">
+            <source src="videos/studio-bts.mp4" type="video/mp4">
+            Browser Anda tidak mendukung pemutar video.
+          </video>
+        </div>
+        
+        <div style="text-align: center; margin-top: 15px;">
+          <button class="btn btn-soft" onclick="openVideoModal('videos/studio-bts.mp4')">
+            🔍 Tonton Video di Pop-Up Modal
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 4: PEMESANAN (BOOKING) -->
+    <section id="booking" class="scene">
+      <p class="booking-top-desc">
+        Isi data pemesanan di bawah ini. Tiket digital dan bukti booking Anda akan langsung diterbitkan secara otomatis.
+      </p>
+
+      <div class="booking-wrapper">
+        <div class="form-box">
+          <form id="bookingForm" onsubmit="saveBooking(event)">
+            <div class="form-group">
+              <label for="userName">Nama Lengkap Pemesan:</label>
+              <input type="text" id="userName" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <div class="form-group">
+              <label for="packageSelect">Pilih Paket Fotografi:</label>
+              <select id="packageSelect" onchange="updateTotalCost()" required>
+                <option value="" data-price="0">-- Pilih Paket --</option>
+                <option value="Polaroid Nostalgia" data-price="350000">Polaroid Nostalgia (Rp 350.000)</option>
+                <option value="Prewedding / Couple" data-price="1200000">Prewedding / Couple (Rp 1.200.000)</option>
+                <option value="Komersial & Produk" data-price="850000">Komersial & Produk (Rp 850.000)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bookingDate">Tanggal Sesi Foto:</label>
+              <input type="date" id="bookingDate" required>
+            </div>
+
+            <div class="cost-box">
+              <div class="cost-label">Estimasi Total Biaya:</div>
+              <div class="cost-amount" id="totalCostDisplay">Rp 0</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Terbitkan Tiket Booking</button>
+          </form>
+        </div>
+
+        <div class="ticket-box-container">
+          <h3 class="ticket-box-title">🎟️ Tiket Booking Digital Anda</h3>
+          <div id="savedDataDisplay">
+            <p style="color: #777; font-size: 14px; text-align: center; margin-top: 30px;">
+              Belum ada tiket yang diterbitkan. Silakan isi form di sebelah kiri.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 5: TENTANG -->
+    <section id="about" class="scene">
+      <div class="about-simple-container">
+        <h2>Sejarah & Filosofi</h2>
+        <p>
+          Maison de Lee (MDL) didirikan sebagai wadah kreatif yang bergerak di bidang pelestarian warisan visual melalui media seni dan fotografi. Berawal dari sebuah studio independen kecil di Bandung, kini kami bertransformasi menjadi ruang eksplorasi keindahan visual kontemporer.
+        </p>
+        <p>
+          Kami memadukan keintiman emosional teknik cetak klasik kamar gelap dengan fleksibilitas teknologi multimedia masa kini, melahirkan karya-karya fotografi yang memiliki jiwa, keunikan, dan karakter cerita mendalam.
+        </p>
+      </div>
+    </section>
+
+    <!-- SCENE 6: KONTAK -->
+    <section id="contact" class="scene">
+      <div class="contact-simple-container">
+        <h2>Hubungi Kami</h2>
+        <p class="contact-subtext">Kami selalu terbuka untuk kolaborasi seni dan diskusi kreatif.</p>
+
+        <div class="contact-card-soft">
+          <p>📍 <strong>Alamat:</strong> Bandung, Jawa Barat</p>
+          <p>📧 <strong>Email:</strong> info@maisondelee.com</p>
+          <p>📸 <strong>Instagram:</strong> @maisondelee</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCENE 7: ADMIN DASHBOARD -->
+    <section id="admin-dashboard" class="scene">
+      <div class="admin-header">
+        <h2>Dashboard Administrator Studio</h2>
+        <button class="btn btn-danger" onclick="adminLogout()">Logout Admin</button>
+      </div>
+      <div class="table-responsive">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kode Tiket</th>
+              <th>Nama Pemesan</th>
+              <th>Paket</th>
+              <th>Tanggal</th>
+              <th>Total Biaya</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="main-footer">
+    <p>© 2026 Maison de Lee (MDL). Proyek UTS Sistem Multimedia - STMIK MARDIRA INDONESIA.</p>
+  </footer>
+
+  <!-- MODAL PREVIEW GAMBAR -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Preview Gambar">
+    <div id="modalCaption"></div>
+  </div>
+
+  <!-- MODAL POP-UP VIDEO -->
+  <div id="videoModal" class="modal" onclick="closeVideoModal(event)">
+    <div class="modal-card" style="background: transparent; max-width: 900px; width: 90%; padding: 0; position: relative; border: none;">
+      <span class="close-modal" onclick="closeVideoModal(event)" style="position: absolute; top: -35px; right: 0; color: #fff; font-size: 32px; cursor: cursor;">&times;</span>
+      <video id="modalVideoPlayer" controls style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        <source id="modalVideoSource" src="" type="video/mp4">
+      </video>
+    </div>
+  </div>
+
+  <!-- MODAL LOGIN ADMIN -->
+  <div id="loginModal" class="modal">
+    <div class="modal-card">
+      <h3>Login Administrator</h3>
+      <form onsubmit="handleAdminLogin(event)">
+        <div class="form-group">
+          <label for="adminUser">Username</label>
+          <input type="text" id="adminUser" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+          <label for="adminPass">Password</label>
+          <input type="password" id="adminPass" placeholder="Password" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-soft" onclick="closeLoginModal()">Batal</button>
+          <button type="submit" class="btn btn-primary">Masuk</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
