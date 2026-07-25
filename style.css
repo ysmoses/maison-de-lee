@@ -359,3 +359,30 @@ body {
   #printableTicket, #printableTicket * { visibility: visible; }
   #printableTicket { position: absolute; left: 0; top: 0; width: 100%; border: 2px dashed #000; }
 }
+/* Pengaturan khusus untuk HP / layar dengan lebar maksimum 768px */
+@media screen and (max-width: 768px) {
+  /* Atur ulang ukuran judul utama agar tidak terlalu besar */
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
+  /* Buat menu navigasi atas tersusun rapi atau mengecil */
+  nav, .nav-links, .menu-container {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  /* Atur tombol aksi agar tersusun ke bawah (tidak berdampingan jika sempit) */
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn-pink-pill, .btn-outline-pill {
+    width: 100%;
+    text-align: center;
+  }
+}
